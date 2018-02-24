@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>starwars</title>
+    <meta charset="utf-8">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="assests/css/style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+
+    <!-- <link href="https://fonts.googleapis.com/css?family=Black+Ops+One|Bungee+Inline|Press+Start+2P|Six+Caps|Syncopate" rel="stylesheet"> -->
+
+</head>
+
+<body>
+    <header>
+        <p>StarWars RPG</p>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-1">
+                
+            </div>
+
+            <div class="col-sm-8">
+                <button id ="start">Start</button>
+                <button id ="attack">Attack</button>
+                
+
+                <div id="clickfield">
+
+                    <div class="row" id="playeroptions">            
+                    </div>
+
+                    <div class="row">
+         
+                        <div class="col-sm-6">
+                            <div class="row" id = "playername">
+                            </div>
+                            <div class="row" id="playerselected">
+                            </div>
+                            <div class="row" id = "playerhp">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="row" id="battle">
+                            </div>
+                        </div>
+
+                    </div>   
+                    
+                    <div class="row"> 
+                        <h1>Enimies</h1>
+                        <div class="row" id="enimies">
+                        </div>
+                    </div>
+
+                </div>
+                
+            </div>
+
+            <div class="col-sm-3">
+                
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        $(document).ready(function (){
+
+            
+        var characters = [
+            yoda = {
+                hp: 500,
+                imageUrl: "<img src = 'assests/images/yoda.jpg' id='Yoda' hp='12' hit='1' name ='yoda'>",
+                hit: 50
+            },
+
+            chewy = {
+                hp: 300,
+                imageUrl: "<img src = 'assests/images/chewy.jpg' id='Chewy' hp='18' hit='4' name ='chewy'>",
+                hit: 10
+            },
+
+            kilo = {
+                hp: 400,
+                imageUrl: "<img src = 'assests/images/kio.jpg' id='Kilo Ryn' hp='10' hit='2' name ='kilo'>",
+                hit: 20
+            },
+            
+            rey = {
+                hp: 450,
+                imageUrl: "<img src = 'assests/images/rey1.jpg'id='Rey' hp='15' hit='3' name ='rey'>",
+                hit: 22
+            }
+        ];
+
+      
+        var selectedplayer = false;
+        var enimies = false;
+        var fighter = false;
+        var enimiesdefeated = 0;
+        var selectedplayerhp = "";
+        var selectedplayerhit = "";
+        var fighterhit = "";
+        var fighterhp = "";
+        
+
+        console.log("selectedplayer " + selectedplayer);
+        console.log("enimies "+ enimies);
+        console.log("fighter "+ fighter);
+        console.log (JSON.parse(JSON.stringify(yoda)));
+        console.log (JSON.parse(JSON.stringify(chewy)));
+        console.log (JSON.parse(JSON.stringify(rey)));
+        console.log (JSON.parse(JSON.stringify(kilo)));
+    
+
+
+        //display players
+            $("#start").click( function(start){
+                // $("#playeroptions) = false;
+                $("#playerselected").hide();
+                $("#battle").hide();
+                $("#enimies").hide();
+                $("#playeroptions").html(rey.imageUrl);
+                $("#playeroptions").append(kilo.imageUrl);
+                $("#playeroptions").append(chewy.imageUrl);
+                $("#playeroptions").append(yoda.imageUrl);
+                selectedplayer = false;
+                enimies = false;
+                fighter = false;
+                enimiesdefeated = 0;
+                selectedplayerhp = "";
+                selectedplayerhit = "";
+                fighterhit = "";
+                fighterhp = "";
+            });
+
+
+            $("#clickfield").click (function (click){
+
+                if (selectedplayer == false && fighter == false ) {
+                    selectedplayer = click.target;
+                    $("#playerselected").show();
+                    $("#playerselected").html(click.target);
+                    $("#playername").text("Your Character " + ($(click.target).attr("name")) );
+                    $("#playerhp").text("HP: " + ($(click.target).attr("hp")) );
+                    $("#enimies").show();
+                    enimies = (playeroptions);
+                    console.log(playeroptions);
+                    $("#enimies").html(enimies);
+                    selectedplayerhp= parseInt($(selectedplayer).attr("hp"));
+                    selectedplayerhit= parseInt($(selectedplayer).attr("hit")); 
+                    console.log("selectedplayerhp " + selectedplayerhp);
+                    console.log("selectedplayerhp " + selectedplayerhit);
+                    console.log($(click.target).attr("hp"));
+                    console.log($(click.target).attr("hit"));
+                    console.log (JSON.parse(JSON.stringify(selectedplayer)));
+                    console.log("player")
+                    console.log ("++++++++++++++++++++++++++++");
+                }
+                else {
+                    $("#enimies").show();
+                    $("#battle").show();
+                    fighter = click.target;
+                    $("#battle").html(click.target);
+                    console.log($(click.target).attr("hp"));
+                    console.log($(click.target).attr("hit"));
+                    fighterhit = parseInt($(fighter).attr("hit"));
+                    fighterhp = parseInt($(fighter).attr("hp"));
+                    console.log(click.target);
+                    console.log(battle);
+                    console.log("fighterhp " + fighterhp);
+                    console.log("fighterhit " + fighterhit);
+                    console.log("selectedplayerhp " + selectedplayerhp);
+                    console.log("selectedplayerhp " + selectedplayerhit);
+                    console.log (JSON.parse(JSON.stringify(selectedplayer)));
+                    console.log (JSON.parse(JSON.stringify(fighter)));
+                    console.log("fighter")
+                    console.log ("++++++++++++++++++++++++++++")
+                }
+            });
+
+
+       // fight 
+            $("#attack").click (function (attack){
+                
+                if (fighter != false){
+                    console.log("selectedplayerhp " + selectedplayerhp);
+                    console.log("selectedplayerhit " + selectedplayerhit);
+                    console.log("fighterhp " + fighterhp);
+                    console.log("fighterhit " + fighterhit);
+                    console.log ("++++++++++++++++++++++++++++")  
+
+                    selectedplayerhp = selectedplayerhp - fighterhit;
+                    fighterhp = fighterhp - selectedplayerhit;
+                    
+                    console.log("selectedplayerhp " + selectedplayerhp);
+                    console.log("selectedplayerhit " + selectedplayerhit);
+                    console.log("fighterhp " + fighterhp);
+                    console.log("fighterhit " + fighterhit);
+                    console.log (JSON.parse(JSON.stringify(selectedplayer)));
+                    console.log (JSON.parse(JSON.stringify(fighter)));
+                    console.log ("++++++++++++++++++++++++++++")       
+                }
+                    if (selectedplayerhp < 1){
+                        // console.log("selectedplayerhp " + selectedplayerhp);
+                        // console.log("selectedplayerhit " + selectedplayerhit);
+                        // console.log("fighterhp " + fighterhp);
+                        // console.log("fighterhit " + fighterhit);
+                        // console.log (JSON.parse(JSON.stringify("selectedplayer " + selectedplayer)));
+                        // console.log (JSON.parse(JSON.stringify("fighter " + fighter)));
+                        console.log ("you lose") 
+                        console.log ("++++++++++++++++++++++++++++")      
+                    }
+
+                    if (fighterhp < 1){
+                        // console.log("selectedplayerhp " + selectedplayerhp);
+                        // console.log("selectedplayerhit " + selectedplayerhit);
+                        // console.log("fighterhp " + fighterhp);
+                        // console.log("fighterhit " + fighterhit);
+                        // console.log (JSON.parse(JSON.stringify("selectedplayer " + selectedplayer)));
+                        // console.log (JSON.parse(JSON.stringify("fighter " + fighter)));
+                        console.log (" you have bet the fighter, click on your next enimie to face")
+                        $(fighter).hide();
+                        figther = false; 
+                        enimiesdefeated += 1;
+                        selectedplayerhit = selectedplayerhit*2;
+                        console.log("selectedplayerhit " + selectedplayerhit);
+                        console.log("enimiesdefeated " + enimiesdefeated);
+                        console.log(enimies);
+                        console.log ("++++++++++++++++++++++++++++")      
+                    }
+
+                    if (enimiesdefeated === 3){
+                        // console.log("selectedplayerhp " + selectedplayerhp);
+                        // console.log("selectedplayerhit " + selectedplayerhit);
+                        // console.log("fighterhp " + fighterhp);
+                        // console.log("fighterhit " + fighterhit);
+                        // console.log (JSON.parse(JSON.stringify("selectedplayer " + selectedplayer)));
+                        // console.log (JSON.parse(JSON.stringify("fighter " + fighter)));
+                        console.log (" you win, your a master jedi, press start to play again")
+                        $(fighter).hide();
+                        $("#playeroptions").show();
+                       
+                        console.log("enimiesdefeated " + enimiesdefeated);
+                        console.log(enimies);
+                        console.log ("++++++++++++++++++++++++++++")      
+                    }
+
+            });
+
+        });
+
+
+    </script>
+
+</body>
+
+</html>

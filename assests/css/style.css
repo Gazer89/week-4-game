@@ -1,0 +1,42 @@
+* {
+    outline: 1px solid red !important;
+   }
+
+
+body {
+    background-image: url("http://thewallpaper.co/wp-content/uploads/2016/10/Main-Charaters-Star-Wars-Movies-hd-free-amazing-cool-tablet-smart-phone-4k-high-definition-1920x1080.jpg");
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    }
+#playerselected {
+    position: relative;
+    padding: 5px;
+}
+
+#playername {
+    color: white;
+    height: 30px;
+}
+#playerhp {
+    color: white;
+    height: 30px;
+}
+
+h1 {
+    position: inherit;    
+}
+
+img {
+    height: 220px;
+    width: 220px;
+}
+
+#playerselection {
+    height: 100%;
+    width: 100%;
+}
+#battle {
+    height: 100%;
+    width: 100%;
+}
