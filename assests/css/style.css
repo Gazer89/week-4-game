@@ -1,7 +1,9 @@
-* {
+/* * {
     outline: 1px solid red !important;
-   }
-
+   } */
+header {
+    height: 20px;
+}
 
 body {
     background-image: url("http://thewallpaper.co/wp-content/uploads/2016/10/Main-Charaters-Star-Wars-Movies-hd-free-amazing-cool-tablet-smart-phone-4k-high-definition-1920x1080.jpg");
@@ -9,34 +11,128 @@ body {
     height: 100%;
     width: 100%;
     }
-#playerselected {
-    position: relative;
-    padding: 5px;
-}
 
-#playername {
-    color: white;
-    height: 30px;
-}
-#playerhp {
-    color: white;
-    height: 30px;
-}
+    button {
+        color: white;
+        background: red;
+        padding: 1%;
+    }
 
-h1 {
-    position: inherit;    
-}
+    #game {
+        font-family: 'Shojumaru', cursive;
+        margin: 5%;
+        font-size: 50px;
+        color: white;
+    }
 
-img {
-    height: 220px;
-    width: 220px;
-}
+    #play {
+        margin-left: 3%; 
+        font-family: 'Shojumaru', cursive;
+    }
 
-#playerselection {
-    height: 100%;
-    width: 100%;
-}
-#battle {
-    height: 100%;
-    width: 100%;
-}
+    #playeroptions {
+        margin-left: 5%;
+    }
+
+    #playername {
+        color: white;
+        height: 30px;
+        margin-left: 8%;
+        margin-bottom: 1%;
+        font-family: 'Ruda', sans-serif;
+        font-size: 25px;
+    }
+
+    #playerselected {
+        margin-left: 8%;
+    }
+
+    #playerhp {
+        color: white;
+        height: 30px;
+        font-size: 25px;
+        margin-left: 8%;
+        font-family: 'Ruda', sans-serif;
+    }
+
+    #fightername {
+        color: white;
+        height: 30px;
+        margin-left: 5%;
+        margin-bottom: 1%;
+        font-family: 'Ruda', sans-serif;
+        font-size: 25px;
+    }
+
+    #battle {
+        margin-left: 5%;
+    }
+
+    #fighterhp {
+        color: white;
+        height: 30px;
+        margin-left: 5%;
+        font-family: 'Ruda', sans-serif;
+        font-size: 25px;
+    }
+
+    #enimieshead {
+        color: white;
+        height: 30px;
+        margin-left: 5%;
+        font-family: 'Ruda', sans-serif;
+        font-size: 25px;
+    }
+
+    #winner {
+        color: red;
+        height: 50px;
+        margin-left: 5%;
+        font-family: 'Ruda', sans-serif;
+        font-size: 45px;
+        margin-top: 3%;
+        margin-bottom: 10%;
+        font-family: 'Denk One', sans-serif;
+    }
+
+    #instruct {
+        color: red;
+        height: 50px;
+        margin-left: 5%;
+        font-family: 'Ruda', sans-serif;
+        font-size: 35px;
+        margin-top: 1%;
+        margin-bottom: 3%;
+        font-family: 'Denk One', sans-serif;
+    }
+
+    #loser {
+        color: red;
+        height: 35px;
+        margin-left: 5%;
+        margin-top: 3%;
+        margin-bottom: 3%;
+        font-size: 45px;
+        font-family: 'Denk One', sans-serif;
+    }
+
+    #bgenimg {
+        margin-left:5%;
+        height: 100%;
+        width: 90%;
+    }
+
+    #charimg {
+        height: 220px;
+        width: 220px;
+        border-color: red;
+        border-style: solid;
+        border-width: 1px;
+        padding: 5px;
+        margin: 1%;
+    }
+
+    #game {
+        height: 100%;
+        width: 100%;
+    }
