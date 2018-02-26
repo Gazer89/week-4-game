@@ -42,7 +42,7 @@
                         <div class="row" id="playeroptions">          
                         </div>
 
-                        <div class="row" id="playing">
+                        <div class="row">
                             
                             <div class="col-sm-6">
                                 <div class="row" id = "playername">
@@ -100,7 +100,6 @@
     <script>
         $(document).ready(function (){
             $("#game").text("It is time to start your Jedi training, press start to begin.");
-            $("#game").fadeIn("slow");
             $("#attack").hide();
 
         var characters = [
@@ -173,6 +172,13 @@
 
 
             $("#clickfield").click (function (click){
+           
+                if ( click.target.id != ( "charimg" )){
+                    return;
+                
+                }
+                
+
                 if (selectedplayer == false && fighter == false ) {
                     selectedplayer = click.target;
                     $("#playerselected").show();
@@ -189,7 +195,7 @@
                     selectedplayerhp= parseInt($(selectedplayer).attr("hp"));
                     selectedplayerhit= parseInt($(selectedplayer).attr("hit")); 
                 }
-                else {
+                else if (selectedplayer != false && fighter == false) {
                     $("#enimieshead").show();
                     $("#enimies").show();
                     $("#battle").show();
@@ -239,11 +245,12 @@
 
                     if (fighterhp <= 0){
                         $(fighter).hide();
-                        figther = false; 
+                        fighter = false; 
                         enimiesdefeated += 1;
                         selectedplayerhit = selectedplayerhit*2;
                         $("#fighterhp").hide();
                         $("#fightername").hide();     
+                        console.log(fighter);
                     }
 
                     if (enimiesdefeated === 3){
@@ -254,6 +261,7 @@
                         $("#fighterhp").hide();
                         $("#fightername").hide();
                         $("#enimieshead").hide();
+                        $("#enimies").hide();
                         $("#winner").show();
                         $("#youwin").show();
                         $("#attack").hide();
